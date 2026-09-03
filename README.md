@@ -199,12 +199,13 @@ The engine is 25 modules in [`src/scgraph/`](src/scgraph/), in seven layers:
 | Model layer (optional, GPU) | `embed`, `reach`, `gnn`, `judge` | semantic relevance, a reachability prior, node classification, a severity check |
 | System | `agents`, `runstate` | a capability graph, a coordinated run, a versioned run graph, dependency-graph bisect |
 
-The seven-gate alert ladder, in order: **(1)** the advisory is real and not withdrawn,
-**(2)** a named package matches a node in the graph, **(3)** a vulnerable version is
-actually in the resolved tree, **(4)** a dependency path exists, **(5)** the advisory was
-published on or before the manifest's ship date, **(6)** severity is above the floor,
-**(7)** reachability is verified or explicitly deferred to manual review. An alert that
-clears all seven carries its path. Anything else is suppressed with a stated reason.
+The seven-gate alert ladder, in order: **(1)** the question grounded to a package in the
+graph, **(2)** a resolved dependency path reaches it, **(3)** a terminal version sits in
+an affected range, **(4)** that version is installable and not yanked, **(5)** a
+supporting advisory is not withdrawn, **(6)** the advisory was published on or before the
+shipped version, **(7)** the vulnerable code is on a live call path, or reachability is
+explicitly deferred to manual review. Gates 1 to 6 are pure graph predicates. An alert
+that clears all seven carries its path. Anything else is suppressed with a stated reason.
 
 Full detail in [`docs/architecture.md`](docs/architecture.md) and
 [`docs/methodology.md`](docs/methodology.md).
