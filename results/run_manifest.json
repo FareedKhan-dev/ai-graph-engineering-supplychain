@@ -1,0 +1,255 @@
+{
+  "profile": "FULL",
+  "ecosystems": [
+    "npm",
+    "pypi",
+    "maven",
+    "cargo",
+    "go",
+    "rubygems",
+    "packagist",
+    "nuget"
+  ],
+  "graph": {
+    "version_nodes": 21415461,
+    "package_nodes": 4460049,
+    "advisories": 285698,
+    "resolves_edges": 82807953,
+    "package_dep_edges": 6682795,
+    "affected_edges": 1350518
+  },
+  "decision": {
+    "retention_pct": 100.0,
+    "max_depth": 12,
+    "depth_hist": {
+      "0": 20000,
+      "1": 45431,
+      "2": 150939,
+      "3": 203888,
+      "4": 166957,
+      "5": 108114,
+      "6": 64085,
+      "7": 35597,
+      "8": 18202,
+      "9": 8461,
+      "10": 3877,
+      "11": 1374,
+      "12": 375
+    },
+    "n_roots": 20000
+  },
+  "shape": {
+    "powerlaw_alpha": 1.957,
+    "is_dag": false,
+    "longest_chain": 28,
+    "cycle_members": 10034
+  },
+  "systemic": {
+    "pagerank_gini": 0.2617665510209346,
+    "top": [
+      "all-of-them",
+      "all-packages-143",
+      "all-packages-176",
+      "wowdude-39",
+      "all-packages-137",
+      "neat-133",
+      "all-packages-174",
+      "all-packages-181",
+      "all-packages-165",
+      "all-packages-149"
+    ]
+  },
+  "ablation": {
+    "curve": [
+      4084,
+      3691,
+      3545,
+      0
+    ],
+    "monotonic": true,
+    "n": 40
+  },
+  "remediation": {
+    "n_exposed": 2177,
+    "n_fixable": 641,
+    "n_unfixable": 2105,
+    "n_need_major": 367
+  },
+  "coordination": {
+    "one_pass": {
+      "alerts": 12717,
+      "cleared": 273,
+      "unfix": 4432,
+      "secs": 1.2680995464324951
+    },
+    "coordinated": {
+      "alerts": 12316,
+      "cleared": 178,
+      "unfix": 4406,
+      "secs": 1.5143640041351318
+    }
+  },
+  "eval_addons": {
+    "powerlaw_gof": {
+      "in_degree": {
+        "alpha": 1.957,
+        "xmin": 2,
+        "n_tail": 285674,
+        "ks_observed": 0.0479,
+        "p_value": 0.0,
+        "n_boot": 300,
+        "verdict": "power law REJECTED (p<0.1); lognormal / cutoff more likely"
+      },
+      "out_degree": {
+        "alpha": 1.918,
+        "xmin": 2,
+        "n_tail": 910766,
+        "ks_observed": 0.0874,
+        "p_value": 0.0,
+        "n_boot": 300,
+        "verdict": "power law REJECTED (p<0.1); lognormal / cutoff more likely"
+      }
+    },
+    "resolver_fidelity": {
+      "examples": {
+        "match": [
+          "npm/depd '^2.0.0' -> 2.0.0",
+          "npm/escape-html '^1.0.3' -> 1.0.3",
+          "npm/once '^1.4.0' -> 1.4.0",
+          "npm/parseurl '^1.3.3' -> 1.3.3",
+          "npm/vary '^1.1.2' -> 1.1.2",
+          "npm/escape-html '^1.0.3' -> 1.0.3",
+          "npm/parseurl '^1.3.3' -> 1.3.3",
+          "npm/depd '~2.0.0' -> 2.0.0",
+          "npm/setprototypeof '~1.2.0' -> 1.2.0",
+          "npm/ee-first '1.1.1' -> 1.1.1"
+        ],
+        "mismatch_in_snapshot": [
+          "npm/wrappy '1': ours=1.0.0 depsdev=1.0.2 (both in snapshot)",
+          "maven/org.hamcrest:hamcrest-core '1.3': ours=2.2-rc1 depsdev=1.3 (both in snapshot)",
+          "maven/org.jetbrains:annotations '13.0': ours=17.0.0 depsdev=13.0 (both in snapshot)"
+        ],
+        "snapshot_gap": [
+          "npm/range-parser '^1.2.1': ours=1.2.1 depsdev=1.3.0 (dd pick not in our 2020 data)",
+          "npm/range-parser '^1.2.1': ours=1.2.1 depsdev=1.3.0 (dd pick not in our 2020 data)",
+          "npm/media-typer '^1.1.0': ours=1.1.0 depsdev=1.1.1 (dd pick not in our 2020 data)",
+          "npm/is-glob '^4.0.0': ours=4.0.1 depsdev=4.0.3 (dd pick not in our 2020 data)",
+          "npm/fast-deep-equal '^3.1.1': ours=3.1.1 depsdev=3.1.3 (dd pick not in our 2020 data)",
+          "npm/uri-js '^4.2.2': ours=4.2.2 depsdev=4.4.1 (dd pick not in our 2020 data)",
+          "npm/path-key '^3.1.0': ours=3.1.0 depsdev=3.1.1 (dd pick not in our 2020 data)",
+          "npm/deep-is '^0.1.3': ours=0.1.3 depsdev=0.1.4 (dd pick not in our 2020 data)",
+          "npm/punycode '^2.1.0': ours=2.1.1 depsdev=2.3.1 (dd pick not in our 2020 data)",
+          "npm/media-typer '^1.1.0': ours=1.1.0 depsdev=1.1.1 (dd pick not in our 2020 data)"
+        ]
+      },
+      "npm": {
+        "edges": 279,
+        "exact_match": 41,
+        "resolved_different": 11,
+        "unresolved": 227,
+        "raw_match_pct": 14.7,
+        "in_snapshot_pairs": 42,
+        "in_snapshot_match_pct": 97.6
+      },
+      "pypi": {
+        "edges": 43,
+        "exact_match": 0,
+        "resolved_different": 7,
+        "unresolved": 36,
+        "raw_match_pct": 0.0,
+        "in_snapshot_pairs": 0,
+        "in_snapshot_match_pct": null
+      },
+      "cargo": {
+        "edges": 789,
+        "exact_match": 63,
+        "resolved_different": 254,
+        "unresolved": 472,
+        "raw_match_pct": 8.0,
+        "in_snapshot_pairs": 63,
+        "in_snapshot_match_pct": 100.0
+      },
+      "maven": {
+        "edges": 10,
+        "exact_match": 0,
+        "resolved_different": 3,
+        "unresolved": 7,
+        "raw_match_pct": 0.0,
+        "in_snapshot_pairs": 2,
+        "in_snapshot_match_pct": 0.0
+      },
+      "overall": {
+        "edges": 1121,
+        "raw_exact_match": 104,
+        "raw_match_pct": 9.3,
+        "in_snapshot_pairs": 107,
+        "in_snapshot_match_pct": 97.2,
+        "reading": "RESOLVER LOGIC: when deps.dev's chosen version is also in our 2020 snapshot (so both resolvers could pick it), we agree 97.2% of the time. The raw 9.3% is dominated by our snapshot simply not containing versions released after Jan 2020 - a data-coverage limit, not a resolver bug. npm is the strongest ecosystem; cargo the weakest."
+      }
+    },
+    "ablation": {
+      "alert_prioritisation": {
+        "n_exposures": 56496,
+        "kendall_tau_base_vs_advanced": 0.8615,
+        "top20_overlap": 0.5,
+        "top100_overlap": 0.47,
+        "reordered_top20": 10,
+        "median_rank_shift": 1249,
+        "n_exposures_where_crit_boost_nonzero": 56384,
+        "reading": "structural boost meaningfully reorders the queue"
+      },
+      "escalation_target": {
+        "manifests_scored": 1885,
+        "top_choice_agrees": 613,
+        "top_choice_disagrees": 1272,
+        "disagreement_pct": 67.5
+      },
+      "logistic_ablation": {
+        "n_manifests": 2123,
+        "n_high_risk": 1410,
+        "auroc_base": 0.9954,
+        "auroc_advanced": 0.9954,
+        "auroc_delta": 0.0001,
+        "top200_flagged_overlap": 0.535,
+        "manifests_flagged_only_by_advanced": 93
+      },
+      "verdict": "the advanced graph signals DO change decisions"
+    },
+    "vs_osvscanner_big": {
+      "repos": 150,
+      "both": 1748,
+      "only_us": 45,
+      "only_scanner": 10,
+      "agreement_pct": 96.9
+    },
+    "perf_summary": {
+      "query_p50_ms": 0.02,
+      "throughput_per_s": 2546.0,
+      "load_s": 13.19,
+      "peak_rss_mb": 16047
+    },
+    "instrument_check": {
+      "blind": 0.4,
+      "oracle": 0.875,
+      "baseline": 0.5333333333333333,
+      "verdict": "instrument OK - oracle clears the baseline, text carries severity signal"
+    }
+  },
+  "llm_calls_to_build_graph": 0,
+  "figures": [
+    "ablation_remediation.png",
+    "alert_funnel.png",
+    "centrality_disagreement.png",
+    "community.png",
+    "coordination.png",
+    "decision.png",
+    "degree_law.png",
+    "gnn.png",
+    "graph_growth.png",
+    "kcore.png",
+    "reachability.png",
+    "systemic.png",
+    "temporal.png",
+    "timing_scaling.png"
+  ]
+}

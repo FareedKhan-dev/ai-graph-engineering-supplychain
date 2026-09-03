@@ -1,0 +1,20 @@
+{
+  "in_degree": {
+    "alpha": 1.957,
+    "xmin": 2,
+    "n_tail": 285674,
+    "ks_observed": 0.0479,
+    "p_value": 0.0,
+    "n_boot": 300,
+    "verdict": "power law REJECTED (p<0.1); lognormal / cutoff more likely"
+  },
+  "out_degree": {
+    "alpha": 1.918,
+    "xmin": 2,
+    "n_tail": 910766,
+    "ks_observed": 0.0874,
+    "p_value": 0.0,
+    "n_boot": 300,
+    "verdict": "power law REJECTED (p<0.1); lognormal / cutoff more likely"
+  }
+}

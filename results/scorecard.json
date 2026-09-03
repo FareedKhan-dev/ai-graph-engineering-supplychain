@@ -1,0 +1,21 @@
+{
+ "graph scale": "21,415,461 versions / 4,460,049 pkgs / 82,807,953 resolved edges",
+ "in-degree power law (Clauset GoF)": "alpha 1.957  Clauset p=0.0  (power law REJECTED (p<0.1); lognormal / cutoff more likely)",
+ "packages in a dependency cycle": 10034,
+ "articulation points / bridges": "88273 / 386554",
+ "reverse-PageRank Gini (core)": 0.262,
+ "densification exponent": 1.153,
+ "community modularity Q": 0.518,
+ "ablation monotonic (causal test)": true,
+ "resolver fidelity (in-snapshot, vs deps.dev)": "97.2%",
+ "structural over-claim vs explicit lists": "~1%",
+ "reachability prior: alerts cut": "9853 -> 9789",
+ "exposed manifests with an UNFIXABLE pkg": "2105/2177",
+ "remediation: advisories introduced by fixes": 317,
+ "advanced signals change a decision?": "the advanced graph signals DO change decisions",
+ "semantic relevance AUROC (real vs control)": 0.9554687500000001,
+ "GNN vs tabular (AP delta CI excl. 0?)": "message-passing beats the same features tabular (CI excludes 0)",
+ "instrument check (judge oracle vs baseline)": "instrument OK - oracle clears the baseline, text carries severity signal",
+ "vs osv-scanner": "both=1748 only-us=45 only-scanner=10",
+ "full-audit latency p50 / throughput": "0.02ms / 2546.0/s"
+}

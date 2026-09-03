@@ -1,0 +1,28 @@
+{
+  "alert_prioritisation": {
+    "n_exposures": 56496,
+    "kendall_tau_base_vs_advanced": 0.8615,
+    "top20_overlap": 0.5,
+    "top100_overlap": 0.47,
+    "reordered_top20": 10,
+    "median_rank_shift": 1249,
+    "n_exposures_where_crit_boost_nonzero": 56384,
+    "reading": "structural boost meaningfully reorders the queue"
+  },
+  "escalation_target": {
+    "manifests_scored": 1885,
+    "top_choice_agrees": 613,
+    "top_choice_disagrees": 1272,
+    "disagreement_pct": 67.5
+  },
+  "logistic_ablation": {
+    "n_manifests": 2123,
+    "n_high_risk": 1410,
+    "auroc_base": 0.9954,
+    "auroc_advanced": 0.9954,
+    "auroc_delta": 0.0001,
+    "top200_flagged_overlap": 0.535,
+    "manifests_flagged_only_by_advanced": 93
+  },
+  "verdict": "the advanced graph signals DO change decisions"
+}

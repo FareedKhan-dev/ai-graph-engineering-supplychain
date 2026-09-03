@@ -1,0 +1,1 @@
+{"blind": 0.4, "oracle": 0.875, "baseline": 0.5333333333333333, "verdict": "instrument OK - oracle clears the baseline, text carries severity signal"}
