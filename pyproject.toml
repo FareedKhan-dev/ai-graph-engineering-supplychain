@@ -53,7 +53,7 @@ dependencies = [
 # e.g. pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
 gpu = [
     "torch>=2.3",
-    "transformers>=4.44",
+    "transformers>=5.16.1",
     "sentence-transformers>=3.0",
     "accelerate>=0.33",
     "bitsandbytes>=0.43; platform_system == 'Linux'",
