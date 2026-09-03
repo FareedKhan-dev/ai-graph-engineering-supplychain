@@ -52,7 +52,7 @@ dependencies = [
 # torch is intentionally not pinned here: install it from the correct CUDA index first,
 # e.g. pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
 gpu = [
-    "torch>=2.3",
+    "torch>=2.13.0",
     "transformers>=4.44",
     "sentence-transformers>=3.0",
     "accelerate>=0.33",
