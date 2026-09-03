@@ -6,8 +6,8 @@ gate, and the conventions this codebase follows.
 ## Development setup
 
 ```bash
-git clone https://github.com/OWNER/REPO.git
-cd REPO
+git clone https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain.git
+cd ai-graph-engineering-supplychain
 python -m venv .venv && . .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -e ".[dev,notebook]"
 pre-commit install

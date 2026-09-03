@@ -24,7 +24,7 @@ from pathlib import Path
 
 from scgraph.acquire import fetch_osv
 
-_UA = "scgraph-smoke/1.0 (+https://github.com/OWNER/REPO)"
+_UA = "scgraph-smoke/1.0 (+https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain)"
 _DD = "https://api.deps.dev/v3"
 
 # Seed packages chosen to have real advisories somewhere in their resolved trees.

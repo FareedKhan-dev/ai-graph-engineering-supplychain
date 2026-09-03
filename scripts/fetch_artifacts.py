@@ -24,7 +24,7 @@ from pathlib import Path
 
 import scgraph
 
-REPO = "OWNER/REPO"  # set to the real slug when the repo is created
+REPO = "FareedKhan-dev/ai-graph-engineering-supplychain"
 
 # asset name -> (sha256 or None, extract-destination relative to repo root)
 ARTIFACTS: dict[str, dict[str, tuple[str | None, str]]] = {

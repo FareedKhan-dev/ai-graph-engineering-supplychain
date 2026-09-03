@@ -8,8 +8,8 @@
 Answered as a path through a graph, or answered with an honest refusal. Zero language-model
 calls are used to build the graph.
 
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
-[![notebook](https://github.com/OWNER/REPO/actions/workflows/notebook-smoke.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/notebook-smoke.yml)
+[![CI](https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/actions/workflows/ci.yml/badge.svg)](https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/actions/workflows/ci.yml)
+[![notebook](https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/actions/workflows/notebook-smoke.yml/badge.svg)](https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/actions/workflows/notebook-smoke.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 [![Built on 82.8M edges](https://img.shields.io/badge/validated-82.8M%20edges-success.svg)](results/run_manifest.json)
@@ -75,7 +75,7 @@ the result**.
 Run it yourself on a laptop in a few minutes:
 
 ```bash
-git clone https://github.com/OWNER/REPO.git && cd REPO
+git clone https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain.git && cd ai-graph-engineering-supplychain
 python -m venv .venv && . .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -e ".[notebook]"
 python -m ipykernel install --user --name scgraph

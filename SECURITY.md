@@ -15,7 +15,7 @@ graph construction. The main security considerations are:
 ## Reporting a vulnerability
 
 Please report privately through GitHub's
-[private vulnerability reporting](https://github.com/OWNER/REPO/security/advisories/new)
+[private vulnerability reporting](https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/security/advisories/new)
 rather than opening a public issue.
 
 Include the version, a description, and a reproduction if you have one. You can expect an

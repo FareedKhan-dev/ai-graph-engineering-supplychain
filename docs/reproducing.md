@@ -43,8 +43,8 @@ packages per ecosystem plus known-vulnerable version pins, so Log4Shell and the 
 prototype-pollution line actually appear). No large download; outbound HTTPS only.
 
 ```bash
-git clone https://github.com/OWNER/REPO.git
-cd REPO
+git clone https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain.git
+cd ai-graph-engineering-supplychain
 python -m venv .venv && . .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
 
