@@ -245,11 +245,14 @@ def _run_with_timeout(fn, seconds):
         raise TimeoutError(f"exceeded {seconds}s budget")
 
     old = signal.signal(signal.SIGALRM, _handler)
-    signal.alarm(int(seconds))  # type: ignore[attr-defined]  # POSIX-only, guarded above
+    # signal.alarm is POSIX-only (guarded by the hasattr check above). The
+    # attr-defined ignore is needed on Windows, where it is absent; unused-ignore
+    # keeps mypy quiet on Linux, where it is present.
+    signal.alarm(int(seconds))  # type: ignore[attr-defined, unused-ignore]
     try:
         return fn()
     finally:
-        signal.alarm(0)  # type: ignore[attr-defined]  # POSIX-only, guarded above
+        signal.alarm(0)  # type: ignore[attr-defined, unused-ignore]
         signal.signal(signal.SIGALRM, old)
 
 
