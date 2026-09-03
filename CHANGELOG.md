@@ -45,4 +45,4 @@ open-source dependency graph (8 ecosystems: 4,460,049 packages, 21,415,461 versi
 - The model layer requires a CUDA GPU. The full parquet corpus and embeddings are
   distributed as GitHub Release assets rather than committed to git.
 
-[1.0.0]: https://github.com/OWNER/REPO/releases/tag/v1.0.0
+[1.0.0]: https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/releases/tag/v1.0.0

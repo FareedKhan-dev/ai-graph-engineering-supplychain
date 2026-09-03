@@ -15,7 +15,7 @@ authors:
 version: 1.0.0
 date-released: 2026-09-02
 license: Apache-2.0
-repository-code: "https://github.com/OWNER/REPO"
+repository-code: "https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain"
 keywords:
   - supply-chain security
   - dependency graph

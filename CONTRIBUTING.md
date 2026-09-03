@@ -6,8 +6,8 @@ gate, and the conventions this codebase follows.
 ## Development setup
 
 ```bash
-git clone https://github.com/OWNER/REPO.git
-cd REPO
+git clone https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain.git
+cd ai-graph-engineering-supplychain
 python -m venv .venv && . .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -e ".[dev,notebook]"
 pre-commit install
@@ -64,7 +64,6 @@ Every pull request must pass, and CI enforces all of it:
 - Branch from `main`. Keep pull requests focused.
 - Write a clear description: what changed, why, and how it was verified.
 - Update `CHANGELOG.md` under an `## [Unreleased]` heading for anything user-visible.
-- The `Co-Authored-By` trailer is welcome when a change was pair-worked.
 
 ## Adding an ecosystem
 

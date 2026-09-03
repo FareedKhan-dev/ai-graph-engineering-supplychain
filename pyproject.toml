@@ -83,10 +83,10 @@ docs = ["mkdocs>=1.6", "mkdocs-material>=9.5", "mkdocstrings[python]>=0.26"]
 all = ["scgraph[gpu,fast,notebook,dev,docs]"]
 
 [project.urls]
-Documentation = "https://github.com/OWNER/REPO/tree/main/docs"
-Source = "https://github.com/OWNER/REPO"
-Issues = "https://github.com/OWNER/REPO/issues"
-Changelog = "https://github.com/OWNER/REPO/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/tree/main/docs"
+Source = "https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain"
+Issues = "https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/issues"
+Changelog = "https://github.com/FareedKhan-dev/ai-graph-engineering-supplychain/blob/main/CHANGELOG.md"
 
 # Command-line entry points live in scripts/ (argparse wrappers around the library),
 # so the package stays import-only and the CLIs are easy to read end to end.
