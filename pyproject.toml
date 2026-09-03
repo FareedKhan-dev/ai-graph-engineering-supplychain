@@ -70,12 +70,12 @@ notebook = [
 ]
 dev = [
     "scgraph[notebook]",
-    "ruff>=0.6",
-    "mypy>=1.11",
-    "pytest>=8.3",
-    "pytest-cov>=5.0",
-    "pytest-xdist>=3.6",
-    "pre-commit>=3.8",
+    "ruff>=0.16.5",
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "pytest-xdist>=3.8.0",
+    "pre-commit>=4.6.2",
     "types-requests",
     "types-tqdm",
 ]
