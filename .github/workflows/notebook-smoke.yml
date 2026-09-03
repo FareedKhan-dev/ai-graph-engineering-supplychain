@@ -1,0 +1,50 @@
+name: notebook (smoke)
+
+# Executes the committed notebook end to end on the smoke profile, to catch the case
+# where a change to src/scgraph/ breaks a cell. It reaches the live OSV and deps.dev
+# APIs, so it runs on a schedule and on demand rather than on every push. It does not
+# commit the result; the executed notebook is uploaded as a build artifact.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "notebooks/supply_chain_graph_engineering.ipynb"
+      - "src/scgraph/**"
+
+concurrency:
+  group: notebook-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[dev,notebook]"
+
+      - name: register kernel
+        run: python -m ipykernel install --user --name scgraph
+
+      - name: acquire smoke corpus
+        run: python scripts/acquire_smoke.py --ecosystems npm pypi maven cargo go
+
+      - name: execute the committed notebook on the smoke profile
+        run: python scripts/_run_notebook.py notebooks/supply_chain_graph_engineering.ipynb scgraph 1500
+
+      - name: upload the smoke-executed notebook
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-smoke
+          path: notebooks/supply_chain_graph_engineering.ipynb

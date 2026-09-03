@@ -1,0 +1,6 @@
+# Default owner for everything in the repo.
+*       @fareedhassankhan12
+
+# The engine and its tests.
+/src/scgraph/   @fareedhassankhan12
+/tests/         @fareedhassankhan12

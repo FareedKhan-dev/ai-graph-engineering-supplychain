@@ -1,0 +1,49 @@
+# Run `pre-commit install` once after cloning. CI runs the same hooks.
+minimum_pre_commit_version: "3.5.0"
+default_language_version:
+  python: python3.12
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=2048"]
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: end-of-file-fixer
+        exclude: '\.ipynb$'
+      - id: trailing-whitespace
+        exclude: '\.(ipynb|md)$'
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.6
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.14.1
+    hooks:
+      - id: mypy
+        files: ^src/scgraph/
+        additional_dependencies: ["numpy>=2.0", "types-requests", "types-tqdm"]
+
+  # The notebook is committed WITH its full-run outputs and figures - it is the primary
+  # artifact of this repository. This hook refuses a commit that would strip them, for
+  # example after editing the notebook without re-executing it.
+  - repo: local
+    hooks:
+      - id: notebook-has-outputs
+        name: notebook keeps its outputs
+        entry: python scripts/check_notebook_outputs.py
+        language: system
+        files: ^notebooks/supply_chain_graph_engineering\.ipynb$
+        pass_filenames: false

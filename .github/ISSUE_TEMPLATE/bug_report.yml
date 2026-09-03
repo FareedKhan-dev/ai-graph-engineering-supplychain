@@ -1,0 +1,31 @@
+name: Bug report
+description: Something in the pipeline or the library does not behave as documented.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: A short script or the exact commands. Which profile (smoke or full)?
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: scgraph version and Python version
+      placeholder: "scgraph 1.0.0, Python 3.12.3, Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Traceback or relevant output
+      render: shell

@@ -1,0 +1,79 @@
+# ------------------------------------------------------------------ data & artifacts
+# The data tiers are regenerated or fetched (see data/README.md and scripts/).
+/data/*
+!/data/README.md
+!/data/.gitkeep
+
+# Large derived artifacts pulled by scripts/fetch_artifacts.py
+/artifacts/
+*.npz
+*.npy
+*.parquet
+*.zip
+*.tar.gz
+*.tgz
+
+# Notebook execution scratch
+/notebooks/data/
+*.nbconvert.ipynb
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------------ secrets
+# Never commit credentials. infra/ reads these from the environment.
+.env
+.env.*
+!.env.example
+*.pem
+*_key
+*_key.pub
+*.key
+credentials.json
+*api_key*
+*apikey*
+
+# ------------------------------------------------------------------ python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.installed.cfg
+*.egg
+pip-wheel-metadata/
+
+# environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+.tox/
+.nox/
+
+# ------------------------------------------------------------------ editors / os
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ------------------------------------------------------------------ docs build
+/site/

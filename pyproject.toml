@@ -1,0 +1,181 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scgraph"
+version = "1.0.0"
+description = "Graph engineering for software supply-chain impact analysis: provenance-enforced CVE exposure over the open-source dependency graph, with zero LLM calls to build the graph."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Fareed Hassan Khan", email = "fareedhassankhan12@gmail.com" }]
+keywords = [
+    "supply-chain-security",
+    "dependency-graph",
+    "graph-engineering",
+    "vulnerability-management",
+    "sbom",
+    "osv",
+    "cvss",
+    "knowledge-graph",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
+
+# Core dependencies: the CPU spine (data, graph store, structure, grounding,
+# traversal, remediation, reporting). Importing scgraph needs only these.
+dependencies = [
+    "numpy>=2.0",
+    "pyarrow>=17",
+    "duckdb>=1.1",
+    "pandas>=2.2",
+    "scipy>=1.13",
+    "scikit-learn>=1.5",
+    "packaging>=24",
+    "requests>=2.32",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+# The model layer (Part IV, and the model half of Parts V and VII). Needs a CUDA GPU.
+# torch is intentionally not pinned here: install it from the correct CUDA index first,
+# e.g. pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+gpu = [
+    "torch>=2.3",
+    "transformers>=4.44",
+    "sentence-transformers>=3.0",
+    "accelerate>=0.33",
+    "bitsandbytes>=0.43; platform_system == 'Linux'",
+]
+# Large-scale graph algorithms (k-core / components / betweenness at 100M-node scale).
+fast = ["igraph>=0.11"]
+# Running and regenerating the notebook.
+notebook = [
+    "nbformat>=5.10",
+    "nbclient>=0.10",
+    "nbconvert>=7.16",
+    "ipykernel>=6.29",
+    "matplotlib>=3.9",
+]
+dev = [
+    "scgraph[notebook]",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "pytest-xdist>=3.6",
+    "pre-commit>=3.8",
+    "types-requests",
+    "types-tqdm",
+]
+docs = ["mkdocs>=1.6", "mkdocs-material>=9.5", "mkdocstrings[python]>=0.26"]
+all = ["scgraph[gpu,fast,notebook,dev,docs]"]
+
+[project.urls]
+Documentation = "https://github.com/OWNER/REPO/tree/main/docs"
+Source = "https://github.com/OWNER/REPO"
+Issues = "https://github.com/OWNER/REPO/issues"
+Changelog = "https://github.com/OWNER/REPO/blob/main/CHANGELOG.md"
+
+# Command-line entry points live in scripts/ (argparse wrappers around the library),
+# so the package stays import-only and the CLIs are easy to read end to end.
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scgraph"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/scgraph", "README.md", "LICENSE", "CHANGELOG.md"]
+
+# --------------------------------------------------------------------------- ruff
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests", "scripts"]
+extend-exclude = ["notebooks/*.ipynb"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",    # pycodestyle
+    "F",         # pyflakes
+    "I",         # isort
+    "N",         # pep8-naming
+    "UP",        # pyupgrade
+    "B",         # flake8-bugbear
+    "C4",        # flake8-comprehensions
+    "SIM",       # flake8-simplify
+    "PTH",       # flake8-use-pathlib
+    "RUF",       # ruff-specific
+]
+ignore = [
+    "E741",   # ambiguous variable name (i, l used for graph indices throughout)
+    "N806",   # non-lowercase variable in function (X, Y for matrices, N for counts)
+    "N803",   # argument name should be lowercase (X for a feature matrix)
+    "B905",   # zip() without explicit strict= (kept for 3.9 muscle memory; audited)
+    "SIM108", # ternary instead of if-else (sometimes less readable for math)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["N802", "N806"]
+"scripts/**" = ["T201"]
+"src/scgraph/gnn.py" = ["N812"]
+# The evaluation modules and make_blogpack are single-shot reproduction scripts that
+# run top to bottom on the full-corpus graph. Held to a lighter standard than the library.
+"scripts/evaluation/**" = ["E402", "E501", "E731", "F401", "N", "SIM", "B", "PTH", "RUF", "C4"]
+"scripts/make_blogpack.py" = ["E402", "E501", "E731", "F401", "N", "SIM", "B", "PTH", "RUF", "C4"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["scgraph"]
+
+# --------------------------------------------------------------------------- mypy
+[tool.mypy]
+python_version = "3.12"
+files = ["src/scgraph"]
+namespace_packages = true
+explicit_package_bases = true
+mypy_path = "src"
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+show_error_codes = true
+pretty = true
+# The numeric core leans on numpy/scipy dynamism; keep the gate useful, not maximal.
+disallow_untyped_defs = false
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "duckdb.*", "pyarrow.*", "sklearn.*", "scipy.*", "igraph.*",
+    "torch.*", "transformers.*", "sentence_transformers.*", "matplotlib.*",
+]
+ignore_missing_imports = true
+
+# -------------------------------------------------------------------------- pytest
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+markers = [
+    "slow: end-to-end tests that acquire data or build a graph (deselect with -m 'not slow')",
+    "gpu: tests that require a CUDA GPU",
+    "network: tests that need outbound network access",
+]
+filterwarnings = ["error", "ignore::DeprecationWarning:duckdb.*"]
+
+[tool.coverage.run]
+source = ["src/scgraph"]
+branch = true
+omit = ["src/scgraph/judge.py", "src/scgraph/gnn.py", "src/scgraph/embed.py"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if __name__ == .__main__.:", "raise NotImplementedError"]

@@ -1,0 +1,29 @@
+# Normalise line endings: LF in the repo, checkout-as-is on Windows is disabled.
+* text=auto eol=lf
+
+*.py    text diff=python
+*.md    text
+*.toml  text
+*.yml   text
+*.yaml  text
+*.json  text
+*.cff   text
+*.sh    text eol=lf
+Makefile text eol=lf
+
+# Notebooks: keep them diffable-ish, but do not let GitHub count them as the main language.
+*.ipynb  text linguist-language=Jupyter\ Notebook linguist-documentation
+
+# Binary assets (no diff, no EOL munging).
+*.png    binary
+*.jpg    binary
+*.pdf    binary
+*.npy    binary
+*.npz    binary
+*.parquet binary
+*.tgz    binary
+*.gz     binary
+*.zip    binary
+
+# Committed result files should not skew language stats.
+results/** linguist-generated

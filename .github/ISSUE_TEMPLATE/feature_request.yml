@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose a new capability, ecosystem, method, or evaluation.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What analysis or workflow is not possible today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: How it would work. If it is a graph or statistical method, cite the reference.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
