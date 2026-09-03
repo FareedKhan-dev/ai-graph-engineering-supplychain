@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "scgraph: Graph Engineering for Software Supply-Chain Impact Analysis"
+abstract: >-
+  A fully local, zero-LLM-to-build pipeline over the open-source dependency graph that
+  answers whether a project is exposed to a given vulnerability, through which dependency
+  path, and what the safe fix is, and that abstains when it cannot justify an alert with
+  a resolvable path. Built and validated end to end on 4.46 million packages, 21.4
+  million versions, and 82.8 million resolved dependency edges across eight ecosystems.
+type: software
+authors:
+  - family-names: Khan
+    given-names: Fareed Hassan
+    email: fareedhassankhan12@gmail.com
+version: 1.0.0
+date-released: 2026-09-02
+license: Apache-2.0
+repository-code: "https://github.com/OWNER/REPO"
+keywords:
+  - supply-chain security
+  - dependency graph
+  - graph engineering
+  - vulnerability management
+  - software bill of materials
+references:
+  - type: article
+    title: "Graph Engineering in the Era of LLM Agents"
+    authors:
+      - name: "The authors of arXiv:2608.21156"
+    identifiers:
+      - type: other
+        value: "arXiv:2608.21156v2"
+    notes: "The survey this pipeline is modelled on."
